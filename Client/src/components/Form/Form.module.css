@@ -1,0 +1,66 @@
+.Login{
+    color: white;
+    font-size: larger;
+    border-radius: 20px;
+    width: 300px;
+    height: 250px;
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; /* Centrado horizontal */
+    margin: auto; /* Esto centrará el contenedor en la pantalla */
+    position: relative;
+}
+
+.Datos{
+    color: white;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-195%, 60%);                                    
+    z-index: 1;
+    width: 300px;
+    height: auto,
+}
+
+.Espaceador1{
+    height: 50px;
+}
+
+.Espaceador2{
+    height: 230px;
+}
+
+.TituloAnimado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -10%);                                    
+    z-index: 2;
+    width: 50%;
+    height: auto,
+}
+
+.Imagen2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);                                    
+    z-index: 1;
+    width: 10%;
+    height: auto,
+}
+
+.CabezaRick{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-300%, -40%);                                    
+    z-index: 1;
+    width: 50%;
+    height: auto,
+}
