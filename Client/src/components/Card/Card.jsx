@@ -4,11 +4,16 @@ import {addFav, removeFav} from "../../redux/actions";
 import {connect} from 'react-redux'
 import { useState, useEffect } from "react";
 import styles from "./Card.module.css"
+import useSound from "use-sound";
+import woVuDud from "../../assets/woo_vu_luvub_dub_dub.mp3";
+import shit from "../../assets/oh-shit-mother____er.mp3";
 
 
 function Card({myFavorites, id, onClose, name, status, species, gender, origin, image, addFav, removeFav}) {
 
    const [isFav, setIsFav] = useState(false);
+   const [sonido1] = useSound(woVuDud);
+   const [sonido2] = useSound(shit);
    
    useEffect(() => {
       myFavorites.forEach((fav) => {
@@ -16,15 +21,17 @@ function Card({myFavorites, id, onClose, name, status, species, gender, origin, 
             setIsFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [myFavorites, id]);
 
    const handleFavourites = () => {
       if(isFav){
          setIsFav(false)
          removeFav(id)
+         sonido2()
       } else {
          setIsFav(true)
          addFav({myFavorites, id, onClose, name, status, species, gender, origin, image})
+         if(name.includes('Rick')){sonido1()};
       }
    }
 
@@ -48,7 +55,7 @@ function Card({myFavorites, id, onClose, name, status, species, gender, origin, 
                   <button style={{marginTop: '0px'}} className={styles.GeneralButton}>Details</button>
                </NavLink>
                <div style={{display: 'flex', justifyContent: 'center'}}>            
-                  <img className={styles.ImagenPersonaje} src={image} alt='Imagen personaje' />
+                  <img className={name.length < 30 ? styles.ImagenPersonaje : styles.ImagenPersonaje2} src={image} alt='Imagen personaje' />
                </div>           
             </div>
          </div>

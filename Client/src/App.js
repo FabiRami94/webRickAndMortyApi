@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+import AllCharacters from './components/AllCharacters/AllCharacters.jsx';
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
             <Route path='/about' element = {<About></About>}></Route>   
             <Route path='/detail/:id' element = {<Detail characters={characters} onSearch = {onSearch} ></Detail>}></Route>
             <Route path='/favorites' element = {<Favorites></Favorites>}></Route> 
+            <Route path='/allcharacters' element = {<AllCharacters characters={characters}></AllCharacters>}></Route>
          </Routes>       
       </div>
    );
