@@ -2,9 +2,8 @@
 import { SEARCH_BY_ID, DELETE_BY_ID, ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions/actionsTypes.js";
 
 const initialState = {
+    myFavoritesOriginal: [],
     myFavorites   : [],
-    detail        : {},
-    allCharacters : [],
     characters: [],
 }
 function rootReducer (state = initialState, action){
@@ -28,31 +27,45 @@ function rootReducer (state = initialState, action){
         case ADD_FAV:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites, action.payload],
-                allCharacters: [...state.allCharacters, action.payload]
+                myFavorites: [action.payload, ...state.myFavorites],
+                myFavoritesOriginal: [action.payload, ...state.myFavorites],
             }
         case REMOVE_FAV:
             return {
                 ...state,
-                myFavorites: state.myFavorites.filter(char => char.id !== +action.payload) // el + antes es para parsein()
+                myFavorites: state.myFavorites.filter(char => char.id !== action.payload), // el + antes es para parsein()
+                myFavoritesOriginal: state.myFavoritesOriginal.filter(char => char.id !== action.payload)
             }
 
         case FILTER:
+
+            let originalFilter = [...state.myFavoritesOriginal];
+
+            let filteredGenres = state.myFavoritesOriginal.filter((
+                char) => char.gender.includes(action.payload)
+            );
+
+            if (action.payload === 'R') {
+                filteredGenres = originalFilter;
+            }
+
             return {
                 ...state,
-                myFavorites: state.allCharacters.filter(char => char.gender === action.payload)
+                myFavorites: filteredGenres
             }
 
         case ORDER:
             
-            let sortedCharacters = [...state.allCharacters]; // Crear una copia para no modificar el estado original
+            let original = [...state.myFavoritesOriginal];
+            let sortedCharacters = [...state.myFavorites]; // Crear una copia para no modificar el estado original
 
             if (action.payload === 'A') {
                 sortedCharacters.sort((a, b) => a.id - b.id); // Orden ascendente
             } else if (action.payload === 'D') {
                 sortedCharacters.sort((a, b) => b.id - a.id); // Orden descendente
+            } else if (action.payload === 'R') {
+                sortedCharacters = original;
             }
-
             return {
                 ...state,
                 myFavorites: sortedCharacters

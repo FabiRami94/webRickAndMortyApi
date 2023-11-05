@@ -1,21 +1,15 @@
-import React, { useState } from "react";
-import {connect, useDispatch, useSelector} from "react-redux";
+import React from "react";
+import {connect, useDispatch} from "react-redux";
 import Card from "../Card/Card";
 import { filterCards, orderCards } from "../../redux/actions/actions";
 import styles from './Favorites.module.css';
 
 function Favorites ({myFavorites}){
 
-    const gender = useSelector((state) => state.gender);
-    const orden = useSelector((state) => state.orden);
-
     const dispatch = useDispatch();
-
-    const [aux, setAux] = useState(false);
 
     const handleOrder = (event) => {
         dispatch(orderCards(event.target.value));
-        setAux(true);
     }
 
     const handleFilter = (event) => {
@@ -33,11 +27,13 @@ function Favorites ({myFavorites}){
                 <div>
                     <select className={styles.GeneralButton} name="order" onChange={handleOrder}>
                         <option value={'--'}>--</option>
-                        <option value={'A'}>Ascendente</option>
-                        <option value={'D'}>Descendente</option>
+                        <option value={'R'}>Reset</option>
+                        <option value={'A'}>Ascendent</option>
+                        <option value={'D'}>Descendent</option>
                     </select>
                     <select className={styles.GeneralButton} onChange={handleFilter}>
                         <option value={'--'}>--</option>
+                        <option value={'R'}>Reset</option>
                         <option value={'Male'}>Male</option>
                         <option value={'Female'}>Female</option>
                         <option value={'Genderless'}>Genderless</option>

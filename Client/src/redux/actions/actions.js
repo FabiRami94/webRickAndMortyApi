@@ -29,7 +29,6 @@ export const searchById = (id) => {
 export const deleteById = (id) => {
 
     return async function (dispatch){
-
         dispatch({type: DELETE_BY_ID, payload: id})
     }
 }

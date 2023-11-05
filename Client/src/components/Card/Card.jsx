@@ -10,7 +10,7 @@ import shit from "../../assets/oh-shit-mother____er.mp3";
 import {deleteById} from "../../redux/actions/actions.js";
 
 
-function Card({myFavorites, id, name, status, species, gender, origin, image, addFav, removeFav}) {
+function Card({myFavorites, id, name, status, species, gender, origin, image, addFav, removeFav, showX}) {
 
    const dispatch = useDispatch();
    const [isFav, setIsFav] = useState(false);
@@ -33,7 +33,7 @@ function Card({myFavorites, id, name, status, species, gender, origin, image, ad
       } else {
          setIsFav(true)
          addFav({myFavorites, id, name, status, species, gender, origin, image})
-         if(name.includes('Rick')){sonido1()};
+         if(name.includes('Morty') || name.includes('Rick')){sonido1()};     
       }
    }
 
@@ -52,7 +52,7 @@ function Card({myFavorites, id, name, status, species, gender, origin, image, ad
                } 
                <h4 >N°: {id}</h4>
                {
-                  onClose ? <button className={styles.GeneralButton} onClick={() => onClose(id)}>X</button> : null
+                  showX ? <button className={styles.GeneralButton} onClick={() => onClose(id)}>X</button> : null
                }  
             </div>
             <div style={{display:'flex', flexDirection: 'column', justifyContent: 'space-evenly'}}>

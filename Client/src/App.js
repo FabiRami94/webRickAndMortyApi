@@ -31,7 +31,9 @@ function App() {
 
    return (
       <div className='App' >
-         {location.pathname !== '/' ? <Nav></Nav> : null}
+         {location.pathname !== '/' ? 
+         <header style={{position: 'sticky', top: '0', zIndex: '2'}}><Nav></Nav></header> : 
+         null}
          <Routes>
             <Route path='/' element = {<Form login = {login}></Form>}></Route>
             <Route path = "/home" element = {<Cards/>}></Route> 

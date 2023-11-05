@@ -13,15 +13,30 @@
     background-color: rgb(82, 201, 222);
 }
 
+.GeneralButton2{
+    background-color: rgba(151, 206, 76, 0.8);
+    color: white;
+    font-size: 16px; 
+    padding: 5px;
+    border-color: rgb(82, 201, 222);
+    border-radius: 10px; 
+    cursor: pointer;
+    margin: 10px;
+}
+
+.GeneralButton2:hover{
+    background-color: rgba(151, 206, 76);
+}
+
 .GeneralButtonActive {
     background-color: rgb(82, 201, 222); 
-    width: 80%;
-    /* color: white;
-    font-size: 18px; 
-    padding: 10px 0px;
- 
-    border-radius: 15px; 
-    margin: 10px;    */
+    color: white;
+    font-size: 16px; 
+    padding: 5px;
+    border-color: rgb(82, 201, 222);
+    border-radius: 10px; 
+    cursor: pointer;
+    margin: 10px;   
 }
 
 .TituloAnimado{

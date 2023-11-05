@@ -29,6 +29,7 @@ export default function Cards() {
                   gender = {character.gender}
                   origin = {true}
                   image = {character.image}
+                  showX = {true}
                />
                )
             }  
