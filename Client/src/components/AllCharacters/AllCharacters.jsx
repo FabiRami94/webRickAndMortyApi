@@ -12,6 +12,7 @@ const AllCharacters = () => {
 
     useEffect(() => {
         setLoading(true);
+        
         const fetchCharacters = async () => {
 
             const allCharacters = [];
@@ -24,7 +25,9 @@ const AllCharacters = () => {
                     console.error(`Error fetching character with ID ${id}:`, error);
                 }
             }
+
             setCharacters(allCharacters);
+            
             setLoading(false);
         };
         fetchCharacters();

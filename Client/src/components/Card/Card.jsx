@@ -1,16 +1,18 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {addFav, removeFav} from "../../redux/actions";
-import {connect} from 'react-redux'
+import {addFav, removeFav} from "../../redux/actions/actions";
+import {connect, useDispatch} from 'react-redux'
 import { useState, useEffect } from "react";
 import styles from "./Card.module.css"
 import useSound from "use-sound";
 import woVuDud from "../../assets/woo_vu_luvub_dub_dub.mp3";
 import shit from "../../assets/oh-shit-mother____er.mp3";
+import {deleteById} from "../../redux/actions/actions.js";
 
 
-function Card({myFavorites, id, onClose, name, status, species, gender, origin, image, addFav, removeFav}) {
+function Card({myFavorites, id, name, status, species, gender, origin, image, addFav, removeFav}) {
 
+   const dispatch = useDispatch();
    const [isFav, setIsFav] = useState(false);
    const [sonido1] = useSound(woVuDud);
    const [sonido2] = useSound(shit);
@@ -30,9 +32,13 @@ function Card({myFavorites, id, onClose, name, status, species, gender, origin, 
          sonido2()
       } else {
          setIsFav(true)
-         addFav({myFavorites, id, onClose, name, status, species, gender, origin, image})
+         addFav({myFavorites, id, name, status, species, gender, origin, image})
          if(name.includes('Rick')){sonido1()};
       }
+   }
+
+   function onClose (id) {
+      dispatch(deleteById(id))
    }
 
    return (

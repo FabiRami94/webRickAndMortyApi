@@ -5,27 +5,27 @@ import styles from "./Detail.module.css"
 
 export default function Detail (){
 
-    const [character, setCharacter] = useState({});
-
     const {id} = useParams();
     const navigate = useNavigate();
+
+    const [character, setCharacter] = useState([]);
 
     const back = () => {
         navigate(-1);   
     }
 
-    useEffect(() => {
-        axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-           if (data.name) {
-              setCharacter(data);
-           } else {
-              window.alert('No hay personajes con ese ID');
-           }
-        });
-        return setCharacter({});
-     }, [id]);
+    async function getCharacter(){
+        try {
+            const response = (await axios.get(`http://localhost:3001/api/character/${id}`)).data;
+            setCharacter(response);
+        } catch (error) {
+            window.alert(error);
+        }
+    }
 
-     console.log(character.id)
+    useEffect(() => {    
+        getCharacter();      
+     }, [id]);
 
     return(
         <div style={{backgroundImage: 'url(/imgs/fondo-favorites.png)', backgroundSize: 'cover', backgroundPosition: 'center' , height: '750px'}}>

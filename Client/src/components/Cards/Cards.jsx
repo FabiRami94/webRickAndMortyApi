@@ -1,8 +1,12 @@
 import React from "react";
 import Card from "../Card/Card"
 import styles from "./Cards.module.css"
+import { useSelector } from "react-redux";
+import SearchBar from "../SearchBar/SearchBar";
 
-export default function Cards({characters, onClose}) {
+export default function Cards() {
+
+   const charactersById = useSelector(state => state.characters);
    
    return (
       <div style={{
@@ -12,9 +16,10 @@ export default function Cards({characters, onClose}) {
          backgroundPosition: 'center' ,
          backgroundAttachment: 'fixed', 
          }}>
-         <div className={styles.Tarjetas}> 
+         <SearchBar></SearchBar>
+         <div className={styles.Tarjetas}>
             {
-               characters.map((character) => 
+               charactersById?.map((character) => 
                <Card 
                   key = {character.id}
                   id = {character.id}
@@ -24,7 +29,6 @@ export default function Cards({characters, onClose}) {
                   gender = {character.gender}
                   origin = {true}
                   image = {character.image}
-                  onClose = {onClose}
                />
                )
             }  
