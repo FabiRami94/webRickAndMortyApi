@@ -35,9 +35,9 @@ const AllCharacters = () => {
 
     return(
         <div style={{
-            backgroundImage: 'url(/imgs/fondo-detail.jpg)', 
+            backgroundImage: 'url(https://wallpapercave.com/wp/wp8685042.jpg', 
             backgroundSize: 'cover', 
-            height: '59650px',
+            minHeight: '100vp',
             backgroundPosition: 'center' ,
             backgroundAttachment: 'fixed',
             paddingTop: '1px' 
@@ -78,7 +78,8 @@ const AllCharacters = () => {
                     </table>
                 )}      
                 {loading && <div style={{ position: 'relative' }}>
-                        <img style={{marginTop: '25px'}} src="/imgs/portal-rick-and-morty.gif" alt="Animated GIF"  />      
+                        <img style={{marginTop: '25px'}} 
+                            src="https://media.tenor.com/BgR83Df82t0AAAAi/portal-rick-and-morty.gif" alt="Animated GIF"  />      
                         <div>  
                             <h1 className={styles.Loading}> Loading...</h1>                     
                         </div>  

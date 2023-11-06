@@ -10,8 +10,8 @@ export default function Form ({login}){
     });
 
     const [errors, setErros] = useState({
-        email: '',
-        password: '', 
+        email: 'campo obligatorio*',
+        password: 'campo obligatorio*', 
     })
 
     const [showSecondImage, setShowSecondImage] = useState(false);
@@ -25,7 +25,7 @@ export default function Form ({login}){
         setErros(
             validation({
                 ...userData,
-                 [event.target.name]: event.target.value
+                [event.target.name]: event.target.value
             })
         )
     }
@@ -45,30 +45,29 @@ export default function Form ({login}){
     },[]);
 
     return (
-        <form onSubmit={handleSubmit} >
-            <div style={{backgroundImage: 'url(/imgs/fondo-login.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div>
-                    <div style={{ position: 'relative' }}>
-                        <img src="/imgs/portal-rick-and-morty.gif" alt="Animated GIF"  />
-                            {showSecondImage && (
-                             <div>  
-                                <img 
-                                src="/imgs/nombre.png" 
+        <div className={styles.divGeneral}>
+            <div>
+                <div style={{ position: 'relative' }}>
+                    <img src="https://media.tenor.com/BgR83Df82t0AAAAi/portal-rick-and-morty.gif" 
+                        alt="Animated GIF"  />
+                        {showSecondImage && (
+                            <div>  
+                            <img 
+                                src="https://i.ibb.co/Y3j4fhZ/nombre.png" 
                                 alt="Salida Portal" 
                                 className={styles.TituloAnimado} />                           
                             <img 
-                                src="/imgs/salida-portal.png" 
+                                src="https://i.ibb.co/hBcdxkr/salida-portal.png" 
                                 alt="Salida Portal" 
                                 className={styles.Imagen2} />
                             </div>  
-                            )}
-                    </div>
-                    <div className={styles.Espaceador1}>                     
-                    </div> 
+                        )}
+                    </div>   
+                <form onSubmit={handleSubmit} >
                     <div className={styles.Login}>
                         <div>  
                             <img 
-                                src="/imgs/cabeza-rick.jpg" 
+                                src="https://i.ibb.co/khRN911/cabeza-rick.jpg" 
                                 alt="Salida Portal" 
                                 className={styles.CabezaRick} />                           
                             <div className={styles.Datos}>
@@ -77,24 +76,30 @@ export default function Form ({login}){
                         </div>  
                         <div>
                             <label>Email:</label>
-                            <input name="email" value={userData.email} onChange={handleChange} 
-                                placeholder="email..." className={errors.email}></input>
-                            <p>{errors.email}</p>
+                            <input 
+                                name="email" 
+                                value={userData.email} 
+                                onChange={handleChange} 
+                                placeholder="email..." 
+                                className={styles.GeneralInput}></input>
+                            <p className={styles.errorsMessage}>{errors.email}</p>
                         </div>
                         <div>
                             <label>Password:</label>
-                            <input name="password" value={userData.password} onChange={handleChange} 
-                                placeholder="password..." className={errors.password}></input>
-                            <p>{errors.password}</p>
+                            <input 
+                                name="password" 
+                                value={userData.password} 
+                                onChange={handleChange} 
+                                placeholder="password..." 
+                                className={styles.GeneralInput}></input>
+                            <p className={styles.errorsMessage}>{errors.password}</p>
                         </div>
                         <div>
-                            <button>Summit</button>
+                            <button className={styles.GeneralButton}>Summit</button>
                         </div>                       
                     </div> 
-                    <div className={styles.Espaceador2}>                     
-                    </div>              
+                    </form>            
                 </div>   
-            </div>           
-        </form>
+        </div>           
     )
 }

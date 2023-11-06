@@ -1,15 +1,21 @@
 
 import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import styles from "./Nav.module.css"
 
 export default function Nav (){
+
+    const navigate = useNavigate();
 
     const [activeButton, setActiveButton] = useState('button1');
 
     const handleButtonClick = (buttonName) => {
         setActiveButton(buttonName);
     };
+
+    function backHandler () {
+        navigate('/');
+    }
 
     return(
         <div style={{backgroundColor: 'rgb(0, 0, 0, 0.8)'}}>
@@ -19,8 +25,8 @@ export default function Nav (){
                 alignItems: 'center', 
                 }}> 
                 <img 
-                    src="/imgs/nombre.png" 
-                    alt="Salida Portal" 
+                    src="https://i.ibb.co/Y3j4fhZ/nombre.png" 
+                    alt="nombre" 
                     className={styles.TituloAnimado} /> 
                 <div>   
                     <NavLink to={"/home"} onClick={() => handleButtonClick("button1")}>
@@ -55,7 +61,7 @@ export default function Nav (){
                             About
                         </button>
                     </NavLink>
-                    <button className={styles.GeneralButton2}>
+                    <button onClick={backHandler} className={styles.GeneralButton2}>
                         LogOut</button>
                 </div>
             </div>

@@ -18,7 +18,7 @@ function Favorites ({myFavorites}){
 
     return(
         <div style={{
-            backgroundImage: 'url(/imgs/fondo-favorites.png)', 
+            backgroundImage: 'url(https://wallpaperaccess.com/full/637645.jpg)', 
             backgroundSize: 'cover', 
             backgroundPosition: 'center', 
             height: '1200px',

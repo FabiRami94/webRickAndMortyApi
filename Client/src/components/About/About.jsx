@@ -6,7 +6,7 @@ export default function About (){
         <>
             <h2>INFORMACIÓN DEL CREADOR DE LA APP... </h2>
             <h2>SOON... </h2>
-            <img src="/imgs/portal-rick-and-morty.gif" alt="Animated Gif Waiting"/>
+            <img src="https://media.tenor.com/BgR83Df82t0AAAAi/portal-rick-and-morty.gif" alt="Animated Gif Waiting"/>
         </>
     )
 }

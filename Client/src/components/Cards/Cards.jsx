@@ -10,9 +10,9 @@ export default function Cards() {
    
    return (
       <div style={{
-         backgroundImage: 'url(/imgs/fondo-cards.png)', 
-         backgroundSize: 'cover', 
-         height: '1200px',
+         backgroundImage: 'url(https://www.pixelstalk.net/wp-content/uploads/images6/HD-Wallpaper-4K-Rick-And-Morty-Free-Download.png)',
+         backgroundSize: 'cover',
+         minHeight: '100vh',
          backgroundPosition: 'center' ,
          backgroundAttachment: 'fixed', 
          }}>

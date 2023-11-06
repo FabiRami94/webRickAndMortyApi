@@ -40,6 +40,13 @@
 }
 
 .TituloAnimado{
-    width: 300px;
+    width: 200px;
     height: auto;
+    margin: 5px;
 }
+
+    @media(max-width: 768px){
+        .TituloAnimado{
+            display: none;
+        }
+    }
