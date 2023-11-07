@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -18,7 +19,7 @@ export default function Detail (){
     useEffect(() => {    
         async function getCharacter(){
             try {
-                const response = (await axios.get(`http://localhost:3001/api/character/${id}`)).data;
+                const response = (await axios.get(`/api/character/${id}`)).data;
                 setCharacter(response);
             } catch (error) {
                 window.alert(error);

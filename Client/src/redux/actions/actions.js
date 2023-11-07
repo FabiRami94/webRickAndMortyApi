@@ -17,7 +17,7 @@ export const searchById = (id) => {
             } else if (id > 826) {
                 alertError('¡No hay personajes con este ID!');
             } else {
-                const character = (await axios.get(`http://localhost:3001/api/character/${id}`)).data
+                const character = (await axios.get(`/api/character/${id}`)).data
                 
                 dispatch({type: SEARCH_BY_ID, payload: { character, parsedId }})
                }        

@@ -86,11 +86,10 @@
 
     @media(max-width: 768px){
         .Portal{
-            transform: translate(-10%, 15%);
+            transform: translate(-10%, -5%);
             width: 35%;
         }
     }
-
 
 .RickBailando{
     position: absolute;
@@ -104,7 +103,7 @@
 
     @media(max-width: 768px){
         .RickBailando{
-            transform: translate(45%, 25%);
+            transform: translate(45%, 5%);
             width: 16%;
         }
     }

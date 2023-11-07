@@ -9,6 +9,8 @@ import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
 import { alertError } from './assets/modals.js';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001/';
 // import AllCharacters from './components/AllCharacters/AllCharacters.jsx';
 
 function App() {
