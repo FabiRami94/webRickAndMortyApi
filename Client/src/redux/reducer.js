@@ -1,5 +1,6 @@
 
 import { SEARCH_BY_ID, DELETE_BY_ID, ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions/actionsTypes.js";
+import { alertError } from "../assets/modals.js";
 
 const initialState = {
     myFavoritesOriginal: [],
@@ -11,7 +12,7 @@ function rootReducer (state = initialState, action){
     switch(action.type){
         case SEARCH_BY_ID:
             if (state.characters.find(data => data.id === action.payload.parsedId)) {
-                window.alert('¡No puedes agregar el mismo personaje más de una vez!')
+                alertError('¡No puedes agregar el mismo personaje más de una vez!')
                 return state;
             } else {
                 return {

@@ -35,7 +35,7 @@ const AllCharacters = () => {
 
     return(
         <div style={{
-            backgroundImage: 'url(https://wallpapercave.com/wp/wp8685042.jpg', 
+            backgroundImage: 'url(https://wallpapercave.com/wp/wp8685042.jpg)', 
             backgroundSize: 'cover', 
             minHeight: '100vp',
             backgroundPosition: 'center' ,

@@ -1,6 +1,7 @@
 
 import { SEARCH_BY_ID, DELETE_BY_ID, ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actionsTypes";
 import axios from "axios";
+import { alertError } from "../../assets/modals";
 
 // Actions creators
 
@@ -10,18 +11,18 @@ export const searchById = (id) => {
         
         try {
             const parsedId = parseInt(id); 
-
+            
             if (isNaN(parsedId)) {
-               window.alert('¡Debe ser un número!');
+                alertError('¡Debes agregar un número!');
             } else if (id > 826) {
-               window.alert('¡No hay personajes con este ID!');
+                alertError('¡No hay personajes con este ID!');
             } else {
                 const character = (await axios.get(`http://localhost:3001/api/character/${id}`)).data
                 
                 dispatch({type: SEARCH_BY_ID, payload: { character, parsedId }})
                }        
         } catch (error) {        
-            window.alert('¡Ocurrió un error al buscar el personaje!' + error.message);
+            alertError('¡Ocurrió un error al buscar el personaje!' + error.message);
         }       
     }
 }

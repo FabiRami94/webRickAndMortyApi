@@ -44,6 +44,17 @@ export default function Form ({login}){
         return () => clearTimeout(timer); //Para limpiar despues de pasar de página
     },[]);
 
+    const buttonDisable = () => {
+        let isDisable;
+        for(let error in errors){
+            if(errors[error] === ""){
+                isDisable = false
+            } else {isDisable = true; 
+                break};
+        } 
+        return isDisable;
+    }
+
     return (
         <div className={styles.divGeneral}>
             <div>
@@ -95,7 +106,7 @@ export default function Form ({login}){
                             <p className={styles.errorsMessage}>{errors.password}</p>
                         </div>
                         <div>
-                            <button className={styles.GeneralButton}>Summit</button>
+                            <button disabled={buttonDisable()} className={styles.GeneralButton}>Summit</button>
                         </div>                       
                     </div> 
                     </form>            

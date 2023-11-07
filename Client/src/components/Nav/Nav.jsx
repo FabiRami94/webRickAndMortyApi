@@ -45,14 +45,14 @@ export default function Nav (){
                             Favorites
                         </button>
                     </NavLink>
-                    <NavLink to={"/allcharacters"} onClick={() => handleButtonClick("button3")}>
+                    {/* <NavLink to={"/allcharacters"} onClick={() => handleButtonClick("button3")}>
                         <button className={(
                             activeButton === "button3" ? 
                             styles.GeneralButtonActive : 
                             styles.GeneralButton)}>
                             AllCharacters
                         </button>
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink to={"/about"} onClick={() => handleButtonClick("button4")}>
                         <button className={(
                             activeButton === "button4" ? 

@@ -113,7 +113,7 @@
     margin: 10px;
 }
 
-.GeneralButton:hover{
+.GeneralButton:not(:disabled):hover{
     background-color: rgb(82, 201, 222);
 }
 
