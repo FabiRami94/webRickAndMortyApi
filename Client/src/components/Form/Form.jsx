@@ -61,7 +61,8 @@ export default function Form ({login}){
             <div>
                 <div style={{ position: 'relative' }}>
                     <img src="https://media.tenor.com/BgR83Df82t0AAAAi/portal-rick-and-morty.gif" 
-                        alt="Animated GIF"  />
+                        alt="Animated GIF"  
+                        className={styles.portal}/>
                         {showSecondImage && (
                             <div>  
                             <img 

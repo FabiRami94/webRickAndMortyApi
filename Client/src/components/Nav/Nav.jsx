@@ -15,6 +15,7 @@ export default function Nav (){
 
     function backHandler () {
         navigate('/');
+        window.location.reload();
     }
 
     return(
